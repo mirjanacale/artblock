@@ -21,5 +21,5 @@ from blog.views import my_block
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', my_block, name='block'),
+    path('block/', my_block, name='block'),
 ]
