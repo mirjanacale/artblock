@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from block.views import my_block
+from block.views import views
+
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('block/', my_block, name='block'),
+    path('about/',views.about, name='block.about')
 ]
