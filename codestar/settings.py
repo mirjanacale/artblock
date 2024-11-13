@@ -36,13 +36,14 @@ ALLOWED_HOSTS = [ '8000-mirjanacale-artblock-hfl59pjbgdn.ws.codeinstitute-ide.ne
 # Application definition
 
 INSTALLED_APPS = [
+    'block.apps.BlockConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'block',
+    #'block',
 ]
 
 MIDDLEWARE = [
