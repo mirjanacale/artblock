@@ -1,5 +1,7 @@
 {% extends 'core/base.html' %}
 
+{% block title %} Home {% endblock %}
+
 {% block content %}
 <section class="hero">
     <div class="hero-body">
@@ -7,25 +9,24 @@
             <section class="section">
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
-                        <div class="content is-medium">
-                            <h2 class="subtitle is-4"> ago</h2>
-                            <h1 class="title"> last post </h1>
-                            <p>  Having abandoned its original plan to build its new Dublin base in Grangegorman
-                                 earlier this year, the US enterprise technology giant looks set to occupy
-                                 44,130 sq m (475,000 sq ft) of the office accommodation at College Square.
-                            </p>
-
-                        </div>
+                        {% if posts %}
+                            {% for post in posts %}
+                                <div class="content is-medium">
+                                    <h2 class="subtitle is-4"> 
+                                        {{ post.published_date|timesince }} ago
+                                    </h2>
+                                    <h1 class="title"> {{ post.title }} </h1>
+                                    <p>{{ post.content|truncatewords:50 }} </p>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No posts available.</p>
+                        {% endif %}
                     </div>
                 </div>
             </section>
         </div>
     </div>
 </section>
-
-
-
-{% for post in posts %}
-<h2>{{ post.title }}</h2>
-{% endfor %}
-{% endblock content  %}
+{% endblock content %}
+ 
