@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('block/', my_block, name='block'),
     path('about/', about, name='about'),
+    path('', include('block.urls')),
     path('', frontpage, name='frontpage'),
    
 
