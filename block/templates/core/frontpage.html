@@ -13,7 +13,7 @@
                             {% for post in posts %}
                                 <div class="content is-medium">
                                     <h2 class="subtitle is-4"> 
-                                        {{ post.published_date|timesince }} ago
+                                        {{ post.created_on|date:"M j, Y H:i" }}   
                                     </h2>
                                     <h1 class="title"> {{ post.title }} </h1>
                                     <p>{{ post.content|truncatewords:50 }} </p>
