@@ -4,7 +4,7 @@ from codestar import views
 
 urlpatterns = [
 
-    path('<slug:slug>/', views.details, name='post_detail'),
+    path('<slug:slug>/', views.details, name='post_details'),
 ]
 
  
