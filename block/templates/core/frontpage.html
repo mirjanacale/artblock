@@ -14,7 +14,7 @@
                                 <div class="content is-medium">
                                     <a href="{% url 'post_details' post.slug %}">  
                                     <h2 class="subtitle is-4"> 
-                                        {{ post.created_on|date:"M j, Y H:i" }}  
+                                        {{ post.created_on|date:"M j, Y H:i" }}   
                                     </h2>
                                     <h1 class="title"> {{ post.title }} </h1>
                                     <p>{{ post.content|truncatewords:50 }} </p>
