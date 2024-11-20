@@ -7,30 +7,20 @@
     <div class="hero-body">
         <div class="container">
             <section class="section">
-              
-                {% endblock %}
-                
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
-                            
                             <h2 class="subtitle is-4">{{ post.created_on|timesince }} ago</h2>
                             <h1 class="title">{{ post.title }}</h1>
-                            <p><strong>{{ post.intro }}</strong></p>
                             <p>{{ post.content }}</p>
 
-                            
+                            <hr>
 
-                            <hr> 
-
-                            
                             <h2 class="subtitle is-4">Comments</h2>
 
                             <form method="post" class="mb-6">
                                 {% csrf_token %}
-
                                 {{ form.as_p }}
-
                                 <div class="field">
                                     <div class="control">
                                         <button class="button is-success">Submit comment</button>
@@ -53,3 +43,4 @@
         </div>
     </div>
 </section>
+{% endblock %}
