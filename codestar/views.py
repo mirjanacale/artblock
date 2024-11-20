@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from block.forms import CommentForm
 from block.models import Post
 
@@ -10,6 +10,8 @@ def details(request, slug):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+            
+            return redirect('post_details', slug=post.slug)
     else:
         form = CommentForm()
     
