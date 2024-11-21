@@ -10,7 +10,7 @@
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         {% if posts %}
-                            {% for post in category.posts.all %}
+                            {% for post in posts %}
                                 <div class="content is-medium">
                                    <p><small>Category:<a href="{% url 'category_details' post.category.slug  %}"> {{ post.category }} </a> </small></p>  
                                     <h2 class="subtitle is-4"> 
@@ -20,9 +20,11 @@
                                     <p>{{ post.content|truncatewords:50 }} </p>
                                     </a>
                                 </div>
-                            {% endfor %}
+                            {% empty %}
                         {% else %}
+                        <div class="content">
                             <p>No posts available.</p>
+                        </div>
                         {% endif %}
                     </div>
                 </div>

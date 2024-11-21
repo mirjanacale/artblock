@@ -3,7 +3,7 @@ from block.forms import CommentForm
 from block.models import Post, Category
 
 def details(request, category_slug, slug):
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, slug=slug, status=Post.ACTIVE )
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -19,4 +19,6 @@ def details(request, category_slug, slug):
 
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    return render(request, 'core/category.html', context={'category': category})
+    posts = category.posts.filter(status=Post.ACTIVE)
+    
+    return render(request, 'core/category.html', context={'category': category,'posts':posts })

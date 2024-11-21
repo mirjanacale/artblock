@@ -17,6 +17,16 @@ class Category(models.Model):
 
 # Create your models here.
 class Post(models.Model):
+    ACTIVE ='active'
+    DRAFT = 'draft'
+    
+    CHOICES_STATUS = (
+        (ACTIVE, 'Active'),
+        (DRAFT, 'Draft')
+    )
+     
+    
+    
     category = models.ForeignKey(Category,related_name='posts', on_delete=models.CASCADE) 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -26,7 +36,7 @@ class Post(models.Model):
     )
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
     
     
     class Meta:

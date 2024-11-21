@@ -10,13 +10,16 @@ class CommentItemInline(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content'] 
-    list_display = ('title', 'slug','category', 'created_on')
-    list_filter = ('category', 'created_on')
+    list_display = ('title', 'slug','category', 'created_on', 'status')
+    list_filter = ('category', 'created_on', 'status')
     inlines = [CommentItemInline]
+    prepopulated_fields = {'slug': ('title',)}
     
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['title'] 
-    list_filter = ('title', 'slug')
+    list_filter = ('title','slug')
+    list_display = ('title', 'slug')
+    prepopulated_fields = {'slug': ('title',)}
     
     
     
