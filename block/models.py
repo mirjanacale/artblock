@@ -17,7 +17,7 @@ class Category(models.Model):
 
 # Create your models here.
 class Post(models.Model):
-    category = models.ForeignKey(Category, name='posts', on_delete=models.CASCADE) 
+    category = models.ForeignKey(Category,related_name='posts', on_delete=models.CASCADE) 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     
@@ -31,6 +31,9 @@ class Post(models.Model):
     
     class Meta:
         ordering = ["-created_on",]
+            
+    def __str__(self):
+        return self.title    
         
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)

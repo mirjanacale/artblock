@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from block.forms import CommentForm
-from block.models import Post
+from block.models import Post, Category
 
-def details(request, slug):
+def details(request, category_slug, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -16,3 +16,7 @@ def details(request, slug):
         form = CommentForm()
     
     return render(request, 'core/details.html', context={'post': post, 'form': form})
+
+def category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    return render(request, 'core/category.html', context={'category': category})
