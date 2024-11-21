@@ -14,7 +14,7 @@
                             <h1 class="title">{{ post.title }}</h1>
                             <p>{{ post.content }}</p>
 
-                            <p><small>Category:<a href="{% url 'category_details' post.category.slug post.slug %}"> {{ post.category }} </a> </small></p>
+                            <p><small>Category: <a href="{% url 'category_details' post.category.slug %}"> {{ post.category }} </a> </small></p>
 
                             <hr>
 
