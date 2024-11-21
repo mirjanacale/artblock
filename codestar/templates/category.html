@@ -12,7 +12,7 @@
                         {% if posts %}
                             {% for post in category.posts.all %}
                                 <div class="content is-medium">
-                                   <p><small>Category:<a href="{% url 'post_details' post.category.slug post.slug %}"> {{ post.category }} </a> </small></p>  
+                                   <p><small>Category:<a href="{% url 'category_details' post.category.slug  %}"> {{ post.category }} </a> </small></p>  
                                     <h2 class="subtitle is-4"> 
                                         {{ post.created_on|date:"M j, Y H:i" }}   
                                     </h2>
