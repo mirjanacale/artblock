@@ -22,3 +22,11 @@ def category(request, slug):
     posts = category.posts.filter(status=Post.ACTIVE)
     
     return render(request, 'core/category.html', context={'category': category,'posts':posts })
+
+def search(request):
+    query = request.GET.get('query','')
+    
+    posts = Post.objects.filter(title__icontains=query)
+    
+    return render(request, 'codestar/search.html', context={'posts': posts})
+      
