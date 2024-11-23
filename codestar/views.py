@@ -28,5 +28,5 @@ def search(request):
     
     posts = Post.objects.filter(title__icontains=query)
     
-    return render(request, 'codestar/search.html', context={'posts': posts})
+    return render(request, 'core/search.html', context={'posts': posts, 'query': query})
       
