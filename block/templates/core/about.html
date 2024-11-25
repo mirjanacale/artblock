@@ -1,4 +1,4 @@
-{% extends 'core/base.html'%}
+{% extends 'core/base.html' %}
 {% load static %}
 {% block title %} About {% endblock %} 
 
@@ -6,13 +6,13 @@
 <h1>About</h1>
 <div class="container mt-5">
     <div class="row">
-      <div class="col-12 col-md-4 text-center">
-        {% if "placeholder" in about.profile_image.url %}
-        <img src="{% static 'block/static/images/truth.jpg' %}" width="75%"
-          alt="placeholder image" >
-        {% else %}
-        <img src="{{ about.profile_image.url }}" width="75%"
-          alt="{{ about.title }}">
-        {% endif %}
-      </div>
-{%endblock%}
+        <div class="col-12 col-md-4 text-center">
+            {% if about.profile_image and "placeholder" in about.profile_image.url %}
+                <img src="{% static 'images/truth.jpg' %}" width="75%" alt="Default profile placeholder">
+            {% else %}
+                <img src="{{ about.profile_image.url }}" width="75%" alt="{{ about.title }}'s profile image">
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

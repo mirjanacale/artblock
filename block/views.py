@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from .models import Post
+from .models import About
 
 # Create your views here.
 def my_block(request):
@@ -12,5 +13,7 @@ def frontpage(request):
 
     return render(request, 'core/frontpage.html', {'posts': post})
 
-def about(request):
-    return render(request, 'core/about.html')
+def about(request): 
+    about_instances = About.objects.all()
+    
+    return render(request, 'core/about.html', {'about': about})

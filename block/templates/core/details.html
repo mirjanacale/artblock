@@ -1,6 +1,8 @@
 {% extends 'core/base.html' %}
 
-{% block title %}{{ post.title }} | {% endblock %}
+{% load static %}
+
+{% block title %}  {{ post.title }} | {% endblock %}
 
 {% block content %}
 <section class="hero">
@@ -10,6 +12,9 @@
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
+                            
+
+
                             <h2 class="subtitle is-4">{{ post.created_on|timesince }} ago</h2>
                             <h1 class="title">{{ post.title }}</h1>
                             <p>{{ post.content }}</p>
